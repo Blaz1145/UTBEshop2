@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+# Project exclude paths
+/UTBEshop2.Web/wwwroot/lib/bootstrap/dist/
+/UTBEshop2.Web/wwwroot/lib/jquery/dist/
+/UTBEshop2.Web/wwwroot/lib/jquery-validation/dist/
+/UTBEshop2.Web/wwwroot/lib/jquery-validation-unobtrusive/dist/
