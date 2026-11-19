@@ -7,7 +7,7 @@ using UTBEshop2.Infrastructure.Database;
 
 #nullable disable
 
-namespace UTBEshop2.Infrastructure.Migrations  //Aktualny stav databezy pre zachytenie zmeny
+namespace UTBEshop2.Infrastructure.Migrations
 {
     [DbContext(typeof(EshopDbContext))]
     partial class EshopDbContextModelSnapshot : ModelSnapshot
@@ -47,6 +47,32 @@ namespace UTBEshop2.Infrastructure.Migrations  //Aktualny stav databezy pre zach
                     b.HasKey("Id");
 
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "najlepsi rohlik na svete",
+                            ImageUrl = "/img/products/produkty-01.jpg",
+                            Name = "Rohlik",
+                            Price = 2.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "nejlepší chleba v galaxii",
+                            ImageUrl = "/img/products/produkty-02.jpg",
+                            Name = "Chleba",
+                            Price = 50.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "nejlepší bageta ve vesmíru",
+                            ImageUrl = "/img/products/produkty-05.jpg",
+                            Name = "Bageta",
+                            Price = 40.0
+                        });
                 });
 #pragma warning restore 612, 618
         }
