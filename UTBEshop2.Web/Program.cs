@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using UTBEshop2.Infrastructure.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+string connectionString = builder.Configuration.GetConnectionString("MySQL"); //precita z appsettings.json
+ServerVersion serverVersion = ServerVersion.AutoDetect(connectionString); //zisti verziu MySQL pre EF Core
+
+builder.Services.AddDbContext<EshopDbContext>(options => options.UseMySql(connectionString,serverVersion)); //zaregistruje DbContext do DI (dependency injection)
 
 var app = builder.Build();
 
