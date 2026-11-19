@@ -22,5 +22,17 @@ namespace UTBEshop2.Application.Implementation
         {
             _productRepository.Add(product);
         }
+        public bool Delete(int id)
+        {
+            var product = _productRepository.GetById(id);
+
+            if (product != null)
+            {
+                _productRepository.Delete(product);
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -15,6 +15,7 @@
             <th scope="col">@nameof(Product.Description)</th>
             <th scope="col">@nameof(Product.Price)</th>
             <th scope="col">@nameof(Product.ImageUrl)</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -26,8 +27,17 @@
                 <td>@product.Description</td>
                 <td>@product.Price</td>
                 <td>@product.ImageUrl</td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@product.Id" method="post">
+                        <input type="submit" value="Delete" onclick="return ConfirmDelete();" class="btn btn-danger" />
+                    </form>
+                </td>
             </tr>
         }
         </tbody>
     </table>
+}
+@section Scripts
+{
+    <script src="~/js/dialogs.js"></script>
 }

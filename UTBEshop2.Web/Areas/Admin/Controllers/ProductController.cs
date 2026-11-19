@@ -25,6 +25,7 @@ namespace UTBEshop2.Web.Areas.Admin.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken] //Ochrana Anti-Forgery Token
         public IActionResult Create(Product product) 
         {
             _productAppService.Create(product);
@@ -34,5 +35,21 @@ namespace UTBEshop2.Web.Areas.Admin.Controllers
         /*[HttpPost] sa spustí po kliknutí na Odoslať.
             ASP.NET z polí formulára sám poskladá objekt Product. Tomu sa hovorí model binding.
             Po uložení presmeruje na zoznam produktov (Select).*/
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var success = _productAppService.Delete(id);
+            if (success)
+            {
+                return RedirectToAction(nameof(Select));
+            }
+            return NotFound();
+        }
+        /*[HttpPost] dovolí mazať len cez formulár, nie obyčajným odkazom.
+            Odkaz (GET) môže spustiť aj prehliadač, vyhľadávač alebo cudzí obrázok na inej stránke. Akcie, ktoré menia dáta, preto majú byť POST.*/
     }
 }
+
+/*Obnovenie seedu databazy dotnet ef database drop a dotnet ef database update (s --project a --startup-project */

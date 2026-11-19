@@ -6,5 +6,6 @@ namespace UTBEshop2.Application.Abstraction
     {
         IList<Product> SelectAll();
         void Create(Product product);
+        bool Delete(int id);
     }
 }
