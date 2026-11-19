@@ -5,5 +5,6 @@ namespace UTBEshop2.Application.Abstraction
     public interface IProductAppService
     {
         IList<Product> SelectAll();
+        void Create(Product product);
     }
 }
