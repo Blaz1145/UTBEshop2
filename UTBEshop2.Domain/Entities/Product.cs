@@ -1,7 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UTBEshop2.Domain.Entities
 {
+    [Table(nameof(Product))] //vdaka tomuto sa bude volat objekt Product a nie Products ako v DbSet
+                             /* pomocou "dotnet ef migrations add mysql_1.0.0_init_product --project UTBEshop2.Infrastructure --startup-project UTBEshop2.Web"
+                                vytvorime migraciu*/
     public class Product
     {
         [Key] //Primarny kluc teda ID
