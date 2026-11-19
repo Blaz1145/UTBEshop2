@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using UTBEshop2.Infrastructure.Database;
+using UTBEshop2.Application.Abstraction;
+using UTBEshop2.Application.Implementation;
+using UTBEshop2.Domain.Repositories;
+using UTBEshop2.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,9 @@ string connectionString = builder.Configuration.GetConnectionString("MySQL"); //
 ServerVersion serverVersion = ServerVersion.AutoDetect(connectionString); //zisti verziu MySQL pre EF Core
 
 builder.Services.AddDbContext<EshopDbContext>(options => options.UseMySql(connectionString,serverVersion)); //zaregistruje DbContext do DI (dependency injection)
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductAppService , ProductAppService>(); //ked si niekto vypzta rozhranie daj mu tuto triedu (Scoped znamena aby vracal 1 objekt
+                                                                        // na jendu HTTP poziadavku
 
 var app = builder.Build();
 
