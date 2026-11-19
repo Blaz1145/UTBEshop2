@@ -6,4 +6,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\UTBEshop2.Application\UTBEshop2.Application.csproj" />
+      <ProjectReference Include="..\UTBEshop2.Domain\UTBEshop2.Domain.csproj" />
+      <ProjectReference Include="..\UTBEshop2.Infrastructure\UTBEshop2.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.15">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
 </Project>
